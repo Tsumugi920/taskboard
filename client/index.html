@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>taskboard 任务看板</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <h1 class="brand"><span class="brand-icon">📋</span><span id="board-name">taskboard 任务看板</span></h1>
+      <div class="filter">
+        <span class="filter-label">标签筛选：</span>
+        <div class="filter-chips" id="filter-chips"></div>
+      </div>
+    </div>
+  </header>
+
+  <main class="board" id="board"><!-- 看板列由 app.js 渲染 --></main>
+
+  <!-- 新建 / 编辑卡片弹窗 -->
+  <div class="modal-mask" id="card-modal" hidden>
+    <div class="modal">
+      <h2 id="modal-title">新建卡片</h2>
+      <form id="card-form">
+        <label>标题
+          <input type="text" id="field-title" maxlength="100" placeholder="卡片标题" required />
+        </label>
+        <label>描述
+          <textarea id="field-description" rows="3" placeholder="补充说明（可选）"></textarea>
+        </label>
+        <label>标签
+          <input type="text" id="field-tags" placeholder="多个标签用逗号分隔，如：前端, 测试" />
+        </label>
+        <div class="modal-actions">
+          <button type="button" class="btn" id="btn-cancel">取消</button>
+          <button type="submit" class="btn btn-primary" id="btn-save">保存</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="toast" id="toast" hidden></div>
+  <script src="app.js"></script>
+</body>
+</html>

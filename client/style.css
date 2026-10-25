@@ -1,0 +1,240 @@
+/* taskboard 任务看板 - 样式 */
+:root {
+  --bg: #eef2f8;
+  --panel: #ffffff;
+  --column-bg: #e8edf5;
+  --border: #dfe5ef;
+  --text: #1f2937;
+  --muted: #6b7280;
+  --primary: #4f6ef7;
+  --primary-dark: #3d5ae0;
+  --danger: #e5484d;
+  --radius: 10px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
+    "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+  background:
+    radial-gradient(1200px 400px at 15% -10%, #dbe6ff 0%, transparent 60%),
+    radial-gradient(1000px 420px at 90% -10%, #e6dcff 0%, transparent 55%),
+    var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+}
+
+[hidden] { display: none !important; }
+
+/* ---------- 顶栏 ---------- */
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: rgba(255, 255, 255, 0.86);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--border);
+  padding: 14px 24px;
+}
+.topbar-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.brand { font-size: 20px; font-weight: 700; display: flex; align-items: center; gap: 8px; }
+.filter { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.filter-label { color: var(--muted); font-size: 14px; }
+.filter-chips { display: flex; gap: 6px; flex-wrap: wrap; }
+.filter-empty { color: var(--muted); font-size: 13px; }
+.filter-chip {
+  border: 1px solid var(--border);
+  background: #fff;
+  color: var(--muted);
+  font-size: 13px;
+  padding: 4px 12px;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.filter-chip:hover { border-color: var(--primary); color: var(--primary); }
+.filter-chip.active { font-weight: 600; }
+.filter-clear { border-style: dashed; }
+
+/* ---------- 看板 ---------- */
+.board {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: flex;
+  gap: 16px;
+  padding: 24px;
+  align-items: flex-start;
+  overflow-x: auto;
+  min-height: calc(100vh - 76px);
+}
+
+.column {
+  background: var(--column-bg);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 12px;
+  flex: 1 1 320px;
+  max-width: 420px;
+  min-height: 300px;
+  display: flex;
+  flex-direction: column;
+}
+.column-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 4px 6px 12px;
+}
+.column-name { font-size: 15px; font-weight: 700; display: flex; align-items: center; gap: 8px; }
+.column-name::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--dot, #94a3b8);
+}
+.column:nth-child(1) { --dot: #f59e0b; }
+.column:nth-child(2) { --dot: #4f6ef7; }
+.column:nth-child(3) { --dot: #10b981; }
+.column-count {
+  background: #fff;
+  color: var(--muted);
+  font-size: 12px;
+  padding: 2px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+}
+
+.card-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex: 1;
+  min-height: 80px;
+}
+
+/* ---------- 卡片 ---------- */
+.card {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 12px 14px;
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.06);
+  cursor: grab;
+  transition: box-shadow 0.15s ease, transform 0.15s ease, opacity 0.15s ease;
+}
+.card:hover { box-shadow: 0 6px 16px rgba(15, 23, 42, 0.12); transform: translateY(-1px); }
+.card.dragging { opacity: 0.4; transform: rotate(1.5deg) scale(1.02); cursor: grabbing; }
+
+.card-title { font-size: 15px; font-weight: 600; line-height: 1.4; word-break: break-word; }
+.card-description {
+  margin-top: 6px;
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.55;
+  word-break: break-word;
+}
+.card-tags { margin-top: 10px; display: flex; flex-wrap: wrap; gap: 6px; }
+.tag { font-size: 12px; line-height: 1; padding: 4px 10px; border-radius: 999px; }
+.card-actions { margin-top: 12px; display: flex; gap: 8px; }
+
+/* ---------- 按钮 ---------- */
+.btn {
+  border: 1px solid var(--border);
+  background: #fff;
+  color: var(--text);
+  border-radius: 8px;
+  padding: 6px 14px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.btn:hover { border-color: var(--primary); color: var(--primary); }
+.btn-mini { padding: 3px 10px; font-size: 12px; color: var(--muted); }
+.btn-danger:hover { border-color: var(--danger); color: var(--danger); }
+.btn-primary { background: var(--primary); border-color: var(--primary); color: #fff; font-weight: 600; }
+.btn-primary:hover { background: var(--primary-dark); border-color: var(--primary-dark); color: #fff; }
+
+.add-card-btn {
+  margin-top: 12px;
+  width: 100%;
+  padding: 9px;
+  border: 1px dashed #c2ccdc;
+  border-radius: 9px;
+  background: transparent;
+  color: var(--muted);
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.add-card-btn:hover { color: var(--primary); border-color: var(--primary); background: rgba(79, 110, 247, 0.06); }
+
+/* ---------- 弹窗 ---------- */
+.modal-mask {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 50;
+  padding: 20px;
+}
+.modal {
+  background: #fff;
+  border-radius: 14px;
+  width: min(460px, 100%);
+  padding: 24px;
+  box-shadow: 0 24px 60px rgba(15, 23, 42, 0.25);
+}
+.modal h2 { font-size: 17px; margin-bottom: 18px; }
+.modal label { display: block; font-size: 13px; color: var(--muted); margin-bottom: 14px; }
+.modal input,
+.modal textarea {
+  width: 100%;
+  margin-top: 6px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 9px 12px;
+  font-size: 14px;
+  font-family: inherit;
+  color: var(--text);
+  background: #fbfcfe;
+  resize: vertical;
+}
+.modal input:focus,
+.modal textarea:focus {
+  outline: none;
+  border-color: var(--primary);
+  background: #fff;
+  box-shadow: 0 0 0 3px rgba(79, 110, 247, 0.15);
+}
+.modal-actions { display: flex; justify-content: flex-end; gap: 10px; margin-top: 6px; }
+
+/* ---------- 提示条 ---------- */
+.toast {
+  position: fixed;
+  left: 50%;
+  bottom: 28px;
+  transform: translateX(-50%);
+  background: #111827;
+  color: #fff;
+  font-size: 14px;
+  padding: 10px 20px;
+  border-radius: 999px;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.3);
+  z-index: 60;
+}
+
+@media (max-width: 720px) {
+  .board { padding: 14px; gap: 12px; }
+  .column { flex: 1 0 85vw; }
+}
