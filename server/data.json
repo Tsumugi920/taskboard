@@ -1,0 +1,145 @@
+{
+  "board": {
+    "id": "board-1",
+    "name": "taskboard 任务看板"
+  },
+  "columns": [
+    {
+      "id": "col-todo",
+      "name": "待办",
+      "position": 0
+    },
+    {
+      "id": "col-doing",
+      "name": "进行中",
+      "position": 1
+    },
+    {
+      "id": "col-done",
+      "name": "已完成",
+      "position": 2
+    }
+  ],
+  "cards": [
+    {
+      "id": "card-1",
+      "columnId": "col-todo",
+      "title": "设计登录页面视觉稿",
+      "description": "输出登录、注册两页的高保真视觉稿，包含空状态与错误提示态。",
+      "tags": [
+        "设计"
+      ],
+      "position": 0,
+      "createdAt": "2026-10-25T06:55:49.886Z",
+      "updatedAt": "2026-10-25T06:55:49.886Z"
+    },
+    {
+      "id": "card-2",
+      "columnId": "col-todo",
+      "title": "编写用户注册接口",
+      "description": "POST /api/auth/register：参数校验、密码加密存储、重复邮箱检测。",
+      "tags": [
+        "后端"
+      ],
+      "position": 1,
+      "createdAt": "2026-10-25T06:55:49.886Z",
+      "updatedAt": "2026-10-25T06:55:49.886Z"
+    },
+    {
+      "id": "card-3",
+      "columnId": "col-todo",
+      "title": "补充接口自动化测试",
+      "description": "为核心 API 补充集成测试，覆盖成功与失败分支。",
+      "tags": [
+        "测试"
+      ],
+      "position": 2,
+      "createdAt": "2026-10-25T06:55:49.886Z",
+      "updatedAt": "2026-10-25T06:55:49.886Z"
+    },
+    {
+      "id": "card-4",
+      "columnId": "col-todo",
+      "title": "调研拖拽方案选型",
+      "description": "对比原生 HTML5 拖拽与成熟拖拽库的实现成本与浏览器兼容性。",
+      "tags": [
+        "前端"
+      ],
+      "position": 3,
+      "createdAt": "2026-10-25T06:55:49.886Z",
+      "updatedAt": "2026-10-25T06:55:49.886Z"
+    },
+    {
+      "id": "card-5",
+      "columnId": "col-doing",
+      "title": "实现看板拖拽交互",
+      "description": "支持卡片跨列拖拽与列内排序，拖拽结果实时持久化。",
+      "tags": [
+        "前端"
+      ],
+      "position": 0,
+      "createdAt": "2026-10-25T06:55:49.886Z",
+      "updatedAt": "2026-10-25T06:55:49.886Z"
+    },
+    {
+      "id": "card-6",
+      "columnId": "col-doing",
+      "title": "开发卡片增删改查 API",
+      "description": "卡片新建、编辑、删除、跨列移动接口联调中。",
+      "tags": [
+        "后端"
+      ],
+      "position": 1,
+      "createdAt": "2026-10-25T06:55:49.886Z",
+      "updatedAt": "2026-10-25T06:55:49.886Z"
+    },
+    {
+      "id": "card-7",
+      "columnId": "col-doing",
+      "title": "撰写产品需求文档",
+      "description": "整理看板模块的需求背景、功能清单与验收标准。",
+      "tags": [
+        "文档"
+      ],
+      "position": 2,
+      "createdAt": "2026-10-25T06:55:49.886Z",
+      "updatedAt": "2026-10-25T06:55:49.886Z"
+    },
+    {
+      "id": "card-8",
+      "columnId": "col-done",
+      "title": "初始化项目仓库",
+      "description": "建立前后端目录结构，配置启动脚本与说明文档。",
+      "tags": [
+        "文档"
+      ],
+      "position": 0,
+      "createdAt": "2026-10-25T06:55:49.886Z",
+      "updatedAt": "2026-10-25T06:55:49.886Z"
+    },
+    {
+      "id": "card-9",
+      "columnId": "col-done",
+      "title": "确定技术栈选型",
+      "description": "前端使用原生 HTML/CSS/JS，后端使用 Node + Express + 文件持久化。",
+      "tags": [
+        "文档"
+      ],
+      "position": 1,
+      "createdAt": "2026-10-25T06:55:49.886Z",
+      "updatedAt": "2026-10-25T06:55:49.886Z"
+    },
+    {
+      "id": "card-10",
+      "columnId": "col-done",
+      "title": "搭建前端页面骨架",
+      "description": "完成看板三列布局与基础样式，接入示例数据。",
+      "tags": [
+        "前端"
+      ],
+      "position": 2,
+      "createdAt": "2026-10-25T06:55:49.886Z",
+      "updatedAt": "2026-10-25T06:55:49.886Z"
+    }
+  ]
+}
